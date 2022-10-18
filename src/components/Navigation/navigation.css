@@ -1,0 +1,77 @@
+nav{
+    width: 100%;
+    height: 70px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* https://themehut.co/wp/movflx/wp-content/uploads/2022/08/banner_bg01.jpg */
+
+.logo{
+    height: 70%;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+.navbar{
+    width: 50%;
+    display: flex;
+}
+
+.navbar ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbar ul li{
+    list-style: none;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+.navbar ul li a:hover{
+    color: #E4D804;
+}
+.extSettings{
+    display: flex;
+    align-items: center;
+}
+.SignIn{
+    padding: 15px 35px;
+    border-radius: 30px;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #fff;
+    border: 3px solid #E4D804;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    margin-left: 10px;
+}
+.SignIn:hover{
+    background-color: #E4D804;
+}
+.fa-globe{
+    color: #E4D804;
+    margin-right: 10px;
+    font-size: 18px;
+}
+#language{
+    outline: none;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+}
