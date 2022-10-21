@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { createContext } from 'react'
 import "./navigation.css"
 
 export default function Navigation() {
+    const [value, setValue] = React.useState("")
+    function getValue(e) {
+       setValue(e.target.value)
+    }
+    console.log(value);
+    const lang = React.createContext(value)
     return (
         <nav>
             <div className="logo">
@@ -10,10 +16,10 @@ export default function Navigation() {
             <div className="navbar">
                 <ul>
                     <li>
-                        <a href="#">Header</a>
+                        <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Header</a>
+                        <a href="#upcoming">Upcoming</a>
                     </li>
                     <li>
                         <a href="#">Header</a>
@@ -30,8 +36,8 @@ export default function Navigation() {
                 <div className="changeLanguage">
                     <i className="fa-light fa-globe"></i>
                     <select name="language" id="language">
-                        <option value="ru-Ru">Ru</option>
-                        <option value="en-US">Eng</option>
+                        <option onClick={e=> getValue(e)} value="en-US">Eng</option>
+                        <option onClick={e=> getValue(e)} value="ru-RU">Ru</option>
                     </select>
                 </div>
                 <div className="darkMode"></div>
