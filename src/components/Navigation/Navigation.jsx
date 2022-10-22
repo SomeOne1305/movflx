@@ -1,15 +1,19 @@
-import React, { createContext } from 'react'
+import React from 'react'
 import "./navigation.css"
+import { changeLanguage } from '../../context'
 
 export default function Navigation() {
-    const [value, setValue] = React.useState("")
-    function getValue(e) {
-       setValue(e.target.value)
+    const [, setValue] = React.useContext(changeLanguage)
+    
+    function getLanguage(e){
+        setValue(e.target.value)  
+        localStorage.setItem("Language", e.target.value)
+        console.log(e.target);  
     }
-    console.log(value);
-    const lang = React.createContext(value)
+    
     return (
-        <nav>
+        <nav style={{position: "fixed", top:0, left: 0}}>
+            <div className="container">
             <div className="logo">
                 <img src="https://themehut.co/wp/movflx/wp-content/themes/movflx/assets/img/logo/logo.png" alt="" />
             </div>
@@ -35,13 +39,15 @@ export default function Navigation() {
             <div className="extSettings">
                 <div className="changeLanguage">
                     <i className="fa-light fa-globe"></i>
-                    <select name="language" id="language">
-                        <option onClick={e=> getValue(e)} value="en-US">Eng</option>
-                        <option onClick={e=> getValue(e)} value="ru-RU">Ru</option>
+                    <select onChange={(e)=> getLanguage(e)} defaultValue={localStorage.getItem('selLang')} name="language" id="language">
+                        <option  >{localStorage.getItem('selLang')}</option>
+                        <option value="en-US">Eng</option>
+                        <option value="ru-RU">Rus</option>
                     </select>
                 </div>
                 <div className="darkMode"></div>
                 <button className="SignIn">Sign In</button>
+            </div>
             </div>
         </nav>
     )

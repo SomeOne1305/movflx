@@ -1,16 +1,20 @@
 import React from 'react'
 import "./movies.css"
 import axios from "axios"
+import { changeLanguage } from '../../context'
 export default function Movies() {
+    const [value, ] = React.useContext(changeLanguage)
     const [movie, setMovie] = React.useState([])
     React.useEffect(()=>{
         async function getMovie(){
-            let data = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=35fa8784c15d0825d778234c487a5807&language=en-US&page=1`)
+            let data = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=35fa8784c15d0825d778234c487a5807&language=${localStorage.getItem('Language')}&page=1`)
             setMovie(data.data.results)
         }
         getMovie()
-    })
-    console.log(movie);
+    },[value])
+   
+
+
     function loadAnim(e){
         return(
             <div className="loadCard" key={e}>
@@ -30,6 +34,7 @@ export default function Movies() {
     }
     return (
         <div className="movies" id='upcoming'>
+            <div className="container">
             <div className="title">
                 <span>ONLINE STREAMING</span>
                 <h2>Upcoming Movies</h2>
@@ -63,6 +68,7 @@ export default function Movies() {
                     </a>
                     })
                 }
+            </div>
             </div>
         </div>
     )

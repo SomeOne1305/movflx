@@ -7,12 +7,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      {/* <Navigation style={{position: "fixed", top:0, left: 0}}></Navigation> */}
-      <div className='container'>
-        <Navigation/>
+      <Navigation/>
+      {/* <Navigation/> */}
         <Header/>
         <Movies/>
-      </div>
     </div>
   );
 }
