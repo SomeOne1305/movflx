@@ -40,7 +40,6 @@ export default function Navigation() {
                 <div className="changeLanguage">
                     <i className="fa-light fa-globe"></i>
                     <select onChange={(e)=> getLanguage(e)} defaultValue={localStorage.getItem('selLang')} name="language" id="language">
-                        <option  >{localStorage.getItem('selLang')}</option>
                         <option value="en-US">Eng</option>
                         <option value="ru-RU">Rus</option>
                     </select>
